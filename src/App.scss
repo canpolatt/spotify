@@ -1,0 +1,185 @@
+$spaceGrey:#030303;
+$gradient:linear-gradient(113.83deg, #121212 0.59%, #121212 99.74%);
+$white:#fff;
+$spotifyGreen:#66D36E;
+$greyText:#282828;
+
+@font-face {
+  font-family: Lato;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+
+
+.subText{
+  font-size: 0.9rem;
+  color:#b3b3b3;
+
+
+}
+
+.App {
+  height:calc(100vh - 96px); //fixed bottom music controls(90px)
+  background: $gradient;
+  display:flex;
+
+}
+.navBar{
+  width:224px;
+  height:100%;
+  background:$spaceGrey;
+  padding:24px;
+  display: flex;
+  flex-direction: column;
+  .logo{
+    padding:1.5em;
+    svg{
+      max-width:145px;
+      path{
+        fill:white; //target spotify logo
+      }
+    }
+  }
+  ul{
+    margin:0;
+    padding: 0;
+    li{
+      color:grey;
+      list-style-type:none;
+      border-radius: 5px;
+      padding:0.5rem 0.8rem;
+      font-size: 14px;
+      cursor:pointer;
+      transition:all 0.3s ease-in-out; //transition time
+      display: flex;
+      align-items: center; //vertically
+      svg{
+        fill:currentColor;
+        margin-right: 17px;
+      }
+      &.active{
+        background:#282828;
+        color:white;
+        svg{
+          fill:white;
+        }
+      }
+      &:hover{
+        color:white;
+      }
+
+    }
+  }
+}
+.outerWrap {
+  background: grey; // $gradient
+  height:100vh;
+  min-height: 100%;
+}
+
+.musicControls {
+  background:#282828;
+  text-align: center;
+  height: 96px; //remaining 96px
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color:$white;
+  position:relative;
+  border-top:1px solid $spaceGrey;
+}
+
+
+.upperNav {
+  height:50px;
+  width:100%;
+  align-items: center;
+  justify-content: center;
+  padding:0.5rem 2rem;
+  position:fixed;
+  top: 0;
+  svg{
+    padding:0.2rem;
+    margin-left:1rem;
+    fill:grey;
+    cursor:pointer;
+    transition:all 0.3s ease-in-out;
+    &:hover{
+      fill:white;
+    }
+  }
+
+}
+
+.main{
+  width:100%;
+  overflow-y:scroll;
+  position: relative;
+  padding-top: 3.4rem;
+  .mainContent{
+    color:white;
+    padding:0.5rem 2rem;
+    h1 {
+      font-size:1.5rem;
+
+    }
+  }
+}
+
+.cardsWrap {
+  padding-bottom: 1.8rem;
+
+  .cardsWrapInner{
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fill,minmax(190px,1fr));
+  }
+
+  .subText{
+    margin-top:0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .card {
+    background:$greyText;
+    border-radius: 10px;
+    max-height: 273px;
+    overflow: hidden;
+    padding:1.2em;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.6));
+    .cardImage{
+      height:171px;
+      filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.6));
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+      }
+    }
+    .cardContent {
+      padding:0.4em 0;
+      right:0;
+      bottom:0;
+      position:relative;
+      h3{
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.6px;
+      }
+      span{
+        font-size: 10px;
+        width: 80%;
+        opacity: 0.6;
+        color:#b3b3b3;
+        position: absolute;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+      }
+    }
+  }
+
+}
